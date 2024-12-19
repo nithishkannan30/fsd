@@ -10,8 +10,9 @@ function App() {
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/employees');
+        const response = await fetch('https://fsdbackend-o5ge.onrender.com/api/employees');
         const data = await response.json();
+        console.log(data);
         setEmployees(data);
       } catch (error) {
         console.error('Error fetching employees:', error);
@@ -78,9 +79,9 @@ function App() {
                           {/* <td>{employee.id}</td> */}
                           <td>{employee.name}</td>
                           <td>{employee.email}</td>
-                          <td>{employee.phone_number}</td>
+                          <td>{employee.phoneNumber}</td>
                           <td>{employee.department}</td>
-                          <td>{new Date(employee.date_of_joining).toLocaleDateString()}</td>
+                          <td>{new Date(employee.dateOfJoining).toLocaleDateString()}</td>
                           <td>{employee.role}</td>
                         </tr>
                       ))
